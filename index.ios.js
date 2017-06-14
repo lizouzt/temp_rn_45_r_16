@@ -15,10 +15,6 @@ import {
 } from 'react-native'
 
 export default class Application extends Component {
-    componentWillMount () {
-
-    }
-
     render () {
         return (
             <ItemDetail/>

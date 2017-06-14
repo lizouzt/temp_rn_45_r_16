@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ImageSlider from './bannerSlider';
+
 import {
   StyleSheet,
   Text,
@@ -12,7 +14,7 @@ var Gallery = React.createClass({
     getInitialState: function () {
         return {
             width: Dimensions.get('window').width,
-            height: (Dimensions.get('window').width / 320) * 300,
+            height: (Dimensions.get('window').width / 320) * 220,
             inited: false
         }
     },
@@ -32,10 +34,13 @@ var Gallery = React.createClass({
                 height: this.state.height,
                 width: this.state.width
             }}>
-                <Image style={{
-                    height: this.state.height,
-                    width: this.state.width
-                }} source={{uri: "https://img.alicdn.com/tfs/TB1Zl57RFXXXXaPXpXXXXXXXXXX-520-280.jpg"}}/>
+                <ImageSlider style={{
+                    backgroundColor: "#f2f2f2"
+                }} 
+                height={this.state.height}
+                width={this.state.width}
+                images={this.props.pics}
+                onPress={()=>console.log('xxx')}/>
             </View>
         );
     }

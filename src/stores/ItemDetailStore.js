@@ -2,6 +2,7 @@ import {ReduceStore} from 'flux/utils';
 
 import Dispatcher from '../dispatcher/utilsDispatcher';
 import ActionTypes from '../constants/ItemDetail';
+import utils from '../utils/utils';
 
 import {dispatch} from '../dispatcher/utilsDispatcher';
 
@@ -13,7 +14,7 @@ class ItemInfoStore extends ReduceStore {
 			goods_mprice: "",
 			goods_mail: "",
 			goods_desc: "",
-			pic_urls: [''],
+			pic_urls: ['https://codoon-img3.b0.upaiyun.com/cdmall9880933441460..name'],
 			sp_phone: '',
 			sp_name: '',
 			sp_id: '',
@@ -40,7 +41,7 @@ class ItemInfoStore extends ReduceStore {
 				let mail_fee = action.data.goods_mail;
 				action.data.goods_mail = mail_fee == "0" ? "免邮" : ("¥" + mail_fee);
 
-				return _.extend({}, state, action.data);
+				return utils.extend({}, state, action.data);
 			case ActionTypes.ITEM_SELECT_UPDATE:
 				let goods_mail = String(action.data.mail_fee) && String(action.data.mail_fee) != 'undefined'
 									? (action.data.mail_fee == "0" ? "免邮" : ("¥" + (action.data.mail_fee / 100).toFixed(2)))
@@ -48,12 +49,12 @@ class ItemInfoStore extends ReduceStore {
 
 				let price = action.data.unit_price ? (action.data.unit_price / 100).toFixed(2) : state.goods_price;
 
-				return _.extend({}, state, {
+				return utils.extend({}, state, {
 					goods_mail: goods_mail,
 					goods_price: price
 				});
 			case ActionTypes.ASSOCIATE_LIST_END:
-				return _.extend({}, state, {
+				return utils.extend({}, state, {
 					ass_list: action.list
 				});
 			default:

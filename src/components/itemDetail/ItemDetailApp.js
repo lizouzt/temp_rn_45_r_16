@@ -13,11 +13,34 @@ import Toolbar from './Toolbar';
 
 import {
     View,
+    ScrollView,
     Text,
     StyleSheet,
 } from 'react-native';
 
-const ORDER_CONFIRM_URI =  './order-confirm.html?h_g_id={item}&h_s_id={sku}&h_count={count}';
+const getItemDetail = () => {
+    fetch('https://xmall.codoon.com/api/mall/webmall/query_goods', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                goods_id: '211340769242861779146542',
+                module: 'mall'
+            })
+        })
+        .then((response) => response.json())
+        .then((obj) => {
+            dispatch({
+                type: ActionTypes.ITEM_INFO_END,
+                data: obj.data
+            });
+        })
+        .catch((err) => {
+            alert(err.message);
+        })
+}
 
 class ItemInfo extends Component {
 
@@ -31,39 +54,24 @@ class ItemInfo extends Component {
         };
     }
 
-    render() {
-        let buyItBtnAttr = {};
-        let buyItBtnText = "购买";
-        if (this.state.info.state != '已上架') {
-            buyItBtnAttr.disabled = "disabled";
-            buyItBtnText = this.state.info.state;
-        }
+    componentWillMount () {
+        getItemDetail();
+    }
 
+    render() {
         const {ass_list} = this.state.info;
 
         return (
-            <View style={styles.id_content}>
+            <ScrollView style={styles.id_content}>
                 <View style={styles.id_wrapper}>
                     <Gallery pics={this.state.info.pic_urls} itemId={this.state.info.goods_id}/>
                     <Detail info={this.state.info} />
                     <Notice need={this.state.info.quality_assure} />
                     <Supplier spData={this.state.info} />
-                    <Toolbar />
-                    <View 
-                        style={styles.id_buy} 
-                        {...buyItBtnAttr} 
-                        onClick={this._buyIt} 
-                        onTouchMove={this._preventMove}>
-                        <Text>{buyItBtnText}</Text>
-                    </View>
+                    <Toolbar buyIt={this._buyIt} state={this.state.info.state} />
                 </View>
-            </View>
+            </ScrollView>
         )
-    }
-
-    _preventMove = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
     }
 
     _buyIt = () => {
@@ -74,8 +82,8 @@ class ItemInfo extends Component {
 }
 
 const styles = StyleSheet.create({
-    id_content: {
-
+    id_wrapper: {
+        marginBottom: 10
     }
 })
 

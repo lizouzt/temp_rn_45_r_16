@@ -20,34 +20,15 @@ function generateSoldTip (info) {
 function generateMarketInfo (marketInfo) {
     if (marketInfo && marketInfo.coin_desc) {
         return (
-            <View style={{
-
-            }}>
-                <View>{marketInfo.coin_desc}</View>
+            <View>
+                <Text style={{
+                    color: '#aaa',
+                    fontSize: 10,
+                    marginLeft: 12,
+                }}>{marketInfo.coin_desc}</Text>
             </View>
         )
     }
-}
-
-function generateShareEntrance () {
-    return (
-        <View 
-            style={styles.idi_share}
-            onTouchStart={this._toggleShare}>
-            <Icon.Button 
-                name="facebook"
-                backgroundColor="#fff"
-                size={22}
-                onPress={()=> console.log('xasdasd')}>
-            </Icon.Button>
-            <Text>分享</Text>
-            <View 
-                style={styles.shareTip}
-                onTouchStart={this._toggleShare}>
-                <Text></Text>
-            </View>
-        </View>
-    )
 }
 
 export default class LInfo extends Component {
@@ -60,23 +41,21 @@ export default class LInfo extends Component {
 
         let soldTip     = generateSoldTip(info);
         let marketTip   = generateMarketInfo(info.market_info);
-        let shareTip    = generateShareEntrance.bind(this)();
 
         return (
             <View style={styles.container}>
-                {shareTip}
-                <View style={styles.idi_name}>
-                    <Text>{info.goods_title}</Text>
+                <View>
+                    <Text style={styles.idi_name}>{info.goods_title}</Text>
                 </View>
                 <View style={styles.idi_price}>
-                    <Text className="id_pu">¥</Text>
-                    <Text>{info.goods_price}</Text>
+                    <Text style={[styles.col_org, styles.id_pu, {fontSize: 18}]}>¥</Text>
+                    <Text style={[styles.col_org, {fontSize: 18}]}>{info.goods_price}</Text>
                     {marketTip}
                 </View>
-                <View style={styles.idi_mprice}>
-                    <Text>市场价 </Text>
-                    <Text style={styles.id_pu}>¥</Text>
-                    <Text>{info.goods_mprice}</Text>
+                <View style={styles.idi_price}>
+                    <Text style={[styles.col_gray, {fontSize: 12}]}>市场价 </Text>
+                    <Text style={[styles.col_gray, styles.id_pu, {fontSize: 14}]}>¥</Text>
+                    <Text style={[styles.col_gray, {fontSize: 12}]}>{info.goods_mprice}</Text>
                 </View>
                 <View className="idi_extra clearfix">
                     <View>
@@ -97,7 +76,35 @@ export default class LInfo extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffffff',
-  }
+    col_gray: {
+        color: '#aaa',
+    },
+    col_org: {
+        color: '#f9930f'
+    },
+    container: {
+        backgroundColor: '#ffffff',
+        paddingTop: 10,
+        paddingBottom: 6,
+        paddingRight: 14,
+        paddingLeft: 14,
+    },
+    idi_name: {
+        fontSize: 16,
+        lineHeight: 22,
+        marginBottom: 4,
+        overflow: 'hidden',
+    },
+    idi_price: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        height: 32,
+        overflow: 'hidden',
+    },
+    id_pu: {
+        flex: 0,
+        lineHeight: 24,
+        margin: 4,
+        marginLeft: 0
+    }
 });

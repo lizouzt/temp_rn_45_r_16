@@ -13,7 +13,7 @@ export default class Supplier extends Component {
         return (
             <View style={styles.id_spl}>
                 <Icon.Button 
-                    name="twitter"
+                    name="shopping-bag"
                     backgroundColor="#3b5998" 
                     size={22}
                     onPress={()=> console.log('xasdasd')}>
