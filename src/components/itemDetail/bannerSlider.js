@@ -5,7 +5,6 @@ import {
     View,
     ScrollView,
     StyleSheet,
-    Animated,
     PanResponder,
     TouchableHighlight,
     TouchableOpacity,
@@ -61,6 +60,7 @@ export default class ImageSlider extends Component {
     _move(index, flag) {
         const isUpdating = index !== this._getPosition();
 
+        //Since ScrollView not support AnimationEnd event with android
         if (index >= this.props.images.length) {
             setTimeout(function () {
                 this._ref.scrollTo({x: this.state.width * (0 + 1), y: 0, animated: false});

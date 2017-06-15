@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
 	View,
 	Text,
 	StyleSheet,
+	Dimensions,
 } from 'react-native';
 
 export default class Toolbar extends Component {
@@ -23,8 +25,20 @@ export default class Toolbar extends Component {
 
 		return (
 			<View style={styles.id_toolbar}>
+				<View style={[styles.borderRight, styles.shopCart]}>
+					<Icon
+						style={{
+							padding: 10
+						}}
+	                    name="shopping-cart"
+	                    backgroundColor="#fff"
+	                    color='#acacac'
+	                    size={22}
+	                    onPress={()=> console.log('xasdas')}>
+	                </Icon>
+				</View>
 				<View 
-					style={styles.idt_btn} 
+					style={[styles.idt_btn, styles.borderRight]} 
 					onPress={this._toggle}>
 					<Text style={{fontSize: 20}}>我</Text>
 				</View>
@@ -48,13 +62,23 @@ export default class Toolbar extends Component {
 const styles = StyleSheet.create({
 	id_toolbar: {
 		backgroundColor: '#fff',
-		borderTopWidth: 1,
+		borderTopWidth: 0.5,
 		borderColor: '#acacac',
-		bottom: 0,
+		height: 42,
 		display: 'flex',
 		flexDirection: 'row',
-		left: 0,
-		zIndex: 9,
+		width: Dimensions.get('window').width,
+	},
+	borderRight: {
+		borderColor: '#acacac',
+		borderRightWidth: 0.5
+	},
+	shopCart: {
+		alignItems: 'center',
+		flex: 0,
+		height: 42,
+		justifyContent: 'center',
+		width: 42,
 	},
 	idt_btn: {
 		alignItems: 'center',

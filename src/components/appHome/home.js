@@ -5,12 +5,6 @@ import {dispatch} from '../../dispatcher/utilsDispatcher';
 import {ItemInfoStore} from '../../stores/ItemDetailStore';
 import ActionTypes from '../../constants/ItemDetail';
 
-import Gallery from './ItemGallery';
-import Detail from './ItemDetail';
-import Notice from './Notice';
-import Supplier from './Supplier';
-import Toolbar from './Toolbar';
-
 import {
     View,
     ScrollView,
@@ -52,7 +46,7 @@ class ItemInfo extends Component {
     static calculateState() {
         return {
             info: ItemInfoStore.getState(),
-        };
+        }
     }
 
     componentWillMount () {

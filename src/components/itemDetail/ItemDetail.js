@@ -9,9 +9,8 @@ import {
 function generateSoldTip (info) {
     if (info.show_sold_all && info.sold_all_desc) {
         return (
-            <View style={{}}>
-                <Text>已售 </Text>
-                <Text>{info.sold_all_desc}</Text>
+            <View style={{flex: 1}}>
+                <Text style={[styles.col_gray, {fontSize: 12}]}>已售 {info.sold_all_desc}</Text>
             </View>
         )
     }
@@ -57,10 +56,11 @@ export default class LInfo extends Component {
                     <Text style={[styles.col_gray, styles.id_pu, {fontSize: 14}]}>¥</Text>
                     <Text style={[styles.col_gray, {fontSize: 12}]}>{info.goods_mprice}</Text>
                 </View>
-                <View className="idi_extra clearfix">
-                    <View>
-                        <Text>运费 </Text>
-                        <Text>{info.goods_mail}</Text>
+                <View style={styles.idi_extra}>
+                    <View style={{
+                        flex: 1
+                    }}>
+                        <Text style={[styles.col_gray, {fontSize: 12}]}>运费 {info.goods_mail}</Text>
                     </View>
                     {soldTip}
                 </View>
@@ -106,5 +106,9 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         margin: 4,
         marginLeft: 0
+    },
+    idi_extra: {
+        display: 'flex',
+        flexDirection: 'row',
     }
 });
