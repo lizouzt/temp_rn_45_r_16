@@ -6,6 +6,7 @@ import {
 	Text,
 	StyleSheet,
 	Dimensions,
+	TouchableHighlight,
 } from 'react-native';
 
 export default class Toolbar extends Component {
@@ -25,29 +26,49 @@ export default class Toolbar extends Component {
 
 		return (
 			<View style={styles.id_toolbar}>
-				<View style={[styles.borderRight, styles.shopCart]}>
-					<Icon
-						style={{
-							padding: 10
-						}}
-	                    name="shopping-cart"
-	                    backgroundColor="#fff"
-	                    color='#acacac'
-	                    size={22}
-	                    onPress={()=> console.log('xasdas')}>
-	                </Icon>
-				</View>
-				<View 
-					style={[styles.idt_btn, styles.borderRight]} 
-					onPress={this._toggle}>
-					<Text style={{fontSize: 20}}>我</Text>
-				</View>
-				<View 
-                    style={styles.id_buy} 
-                    {...buyItBtnAttr} 
-                    onTap={this.props.buyIt}>
-                    <Text style={{fontSize: 20}}>{buyItBtnText}</Text>
-                </View>
+				<TouchableHighlight 
+					onPress={() => {}}
+					underlayColor="#f2f2f2"
+					style={[styles.borderRight, styles.shopCart]}>
+					<View>
+						<Icon
+							style={{
+								padding: 10
+							}}
+		                    name="shopping-cart"
+		                    backgroundColor="#fff"
+		                    color='gold'
+		                    size={22}>
+		                </Icon>
+					</View>
+				</TouchableHighlight>
+				<TouchableHighlight 
+					onPress={() => {}}
+					underlayColor="#f2f2f2"
+					style={[styles.idt_btn, styles.borderRight]}>
+					<View style={{display: 'flex', flexDirection: 'row'}}>
+						<Icon style={{
+								padding: 10,
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+		                    name="user-o"
+		                    backgroundColor="#fff"
+		                    color='gold'
+		                    size={22}>
+		                </Icon>
+					</View>
+				</TouchableHighlight>
+				<TouchableHighlight 
+					onPress={() => {}}
+					underlayColor="#f2f2f2"
+					style={styles.id_buy} >
+					<View
+	                    {...buyItBtnAttr} 
+	                    onTap={this.props.buyIt}>
+	                    <Text style={{fontSize: 20}}>{buyItBtnText}</Text>
+	                </View>
+	            </TouchableHighlight>
 			</View>
 		)
 	}
@@ -75,7 +96,7 @@ const styles = StyleSheet.create({
 	},
 	shopCart: {
 		alignItems: 'center',
-		flex: 0,
+		flex: 0.5,
 		height: 42,
 		justifyContent: 'center',
 		width: 42,

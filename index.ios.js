@@ -5,8 +5,9 @@
 
 'use strict';
 import React, { Component } from 'react';
-
+import {Scene, Router} from 'react-native-router-flux';
 import ItemDetail from './src/components/itemDetail/ItemDetailApp';
+import Home from './src/components/appHome/Home';
 
 import {
     AppRegistry,
@@ -16,9 +17,12 @@ import {
 
 export default class Application extends Component {
     render () {
-        return (
-            <ItemDetail/>
-        )
+        return <Router>
+        			<Scene key="root">
+        				<Scene key="home" component={Home} title="Home"/>
+        				<Scene key="itemDetail" component={ItemDetail} title="ItemDetail"/>
+        			</Scene>
+        		</Router>
     }
 };
 

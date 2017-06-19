@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {Container} from 'flux/utils';
+import {Actions} from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {dispatch} from '../../dispatcher/utilsDispatcher';
-import {ItemInfoStore} from '../../stores/ItemDetailStore';
+import {HomeStore} from '../../stores/HomeStore';
 import ActionTypes from '../../constants/ItemDetail';
 
 import {
@@ -40,39 +42,43 @@ const getItemDetail = () => {
 class ItemInfo extends Component {
 
     static getStores() {
-        return [ItemInfoStore];
+        return [HomeStore];
     }
 
     static calculateState() {
         return {
-            info: ItemInfoStore.getState(),
+            info: HomeStore.getState(),
         }
     }
 
     componentWillMount () {
-        getItemDetail();
+        
     }
 
     render() {
-        const {ass_list} = this.state.info;
+        const {today_title} = this.state.info;
 
         return (
             <View style={styles.id_content}>
                 <ScrollView style={styles.id_wrapper}>
-                    <Gallery pics={this.state.info.pic_urls} itemId={this.state.info.goods_id}/>
-                    <Detail info={this.state.info} />
-                    <Notice need={this.state.info.quality_assure} />
-                    <Supplier spData={this.state.info} />
+                    <Text>{today_title}</Text>
+                    <Icon
+                        style={{
+                            padding: 10
+                        }}
+                        name="shopping-basket"
+                        backgroundColor="#fff"
+                        color='#123456'
+                        size={36}
+                        onPress={() => Actions.itemDetail({itemId: '247588891859278660616714'})}>
+                    </Icon>
                 </ScrollView>
-                <Toolbar buyIt={this._buyIt} state={this.state.info.state} />
             </View>
         )
     }
 
-    _buyIt = () => {
-        if (this.state.info.state != '已上架') return false;
-
-        alert('TODO::Jump');
+    _playIt = () => {
+        alert('TODO::Play');
     }
 }
 
@@ -83,8 +89,9 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height - 20
     },
     id_wrapper: {
+        marginTop: 44,
         marginBottom: 10,
-        height: Dimensions.get('window').height - 42 - 20
+        height: Dimensions.get('window').height - 44 - 20
     }
 })
 

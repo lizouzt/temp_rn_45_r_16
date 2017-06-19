@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height - 20
     },
     id_wrapper: {
-        marginBottom: 10,
-        height: Dimensions.get('window').height - 42 - 20
+        marginTop: 44,
+        height: Dimensions.get('window').height - 44 - 20 - 42
     }
 })
 
