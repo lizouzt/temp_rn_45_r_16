@@ -19,7 +19,7 @@ import {
     Dimensions,
 } from 'react-native';
 
-const getItemDetail = () => {
+const getItemDetail = (itemId) => {
     fetch('https://xmall.codoon.com/api/mall/webmall/query_goods', {
             method: 'POST',
             headers: {
@@ -27,16 +27,20 @@ const getItemDetail = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                goods_id: '156616586736897754957263',
+                goods_id: itemId,
                 module: 'mall'
             })
         })
         .then((response) => response.json())
         .then((obj) => {
-            dispatch({
-                type: ActionTypes.ITEM_INFO_END,
-                data: obj.data
-            });
+            if (obj.status.state == 0) {
+                dispatch({
+                    type: ActionTypes.ITEM_INFO_END,
+                    data: obj.data
+                });
+            } else {
+                alert(obj.status.msg);
+            }
         })
         .catch((err) => {
             alert(err.message);
@@ -56,7 +60,14 @@ class ItemInfo extends Component {
     }
 
     componentWillMount () {
-        getItemDetail();
+        dispatch({
+            type: ActionTypes.UPDATE_ID,
+            data: this.props.itemId
+        });
+    }
+
+    componentDidMount () {
+        getItemDetail(this.state.info.goods_id);
     }
 
     render() {

@@ -9,6 +9,7 @@ import {dispatch} from '../dispatcher/utilsDispatcher';
 class ItemInfoStore extends ReduceStore {
 	getInitialState () {
 		return {
+			goods_id: "",
 			goods_title: "",
 			goods_price: "",
 			goods_mprice: "",
@@ -35,7 +36,7 @@ class ItemInfoStore extends ReduceStore {
 		}
 	}
 
-	reduce (state: Object, action: Action) {
+	reduce (state, action) {
 		switch (action.type) {
 			case ActionTypes.ITEM_INFO_END:
 				let mail_fee = action.data.goods_mail;
@@ -56,6 +57,10 @@ class ItemInfoStore extends ReduceStore {
 			case ActionTypes.ASSOCIATE_LIST_END:
 				return utils.extend({}, state, {
 					ass_list: action.list
+				});
+			case ActionTypes.UPDATE_ID:
+				return utils.extend({}, state, {
+					goods_id: action.data
 				});
 			default:
 				return state;

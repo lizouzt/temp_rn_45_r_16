@@ -60,12 +60,10 @@ export default class Toolbar extends Component {
 					</View>
 				</TouchableHighlight>
 				<TouchableHighlight 
-					onPress={() => {}}
+					onPress={this.props.buyIt}
 					underlayColor="#f2f2f2"
 					style={styles.id_buy} >
-					<View
-	                    {...buyItBtnAttr} 
-	                    onTap={this.props.buyIt}>
+					<View {...buyItBtnAttr}>
 	                    <Text style={{fontSize: 20}}>{buyItBtnText}</Text>
 	                </View>
 	            </TouchableHighlight>

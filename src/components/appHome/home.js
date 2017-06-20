@@ -70,7 +70,7 @@ class ItemInfo extends Component {
                         backgroundColor="#fff"
                         color='#123456'
                         size={36}
-                        onPress={() => Actions.itemDetail({itemId: '247588891859278660616714'})}>
+                        onPress={() => Actions.itemDetail({itemId: '72946995242793105717661'})}>
                     </Icon>
                 </ScrollView>
             </View>

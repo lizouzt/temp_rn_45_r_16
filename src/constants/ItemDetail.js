@@ -12,7 +12,8 @@ const ActionTypes = keyMirror({
 	SKU_CHANGE: null,
 	TOGGLE_SELECTOR: null,
 	UPDATE_ITEM_COUNT: null,
-	ASSOCIATE_LIST_END: null
+	ASSOCIATE_LIST_END: null,
+	UPDATE_ID: null,
 });
 
 export default ActionTypes;
