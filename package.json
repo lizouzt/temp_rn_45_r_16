@@ -4,7 +4,10 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"bunle:ios": "react-native bundle --entry-file index.ios.js --bundle-output ./ios/bundle/main.jsbundle --dev false --platform ios --assets-dest ./ios/bundle",
+        "bundle:android": "react-native bundle --entry-file index.android.js --bundle-output ./android/app/src/main/assets/main.jsbundle --dev false --platform android --assets-dest ./android/app/src/main/res/",
+        "clear:android": "rm -rf ./android/app/src/main/assets/*.*"
 	},
 	"dependencies": {
 		"events": "^1.1.1",
@@ -14,6 +17,7 @@
 		"object-assign": "^4.1.1",
 		"react": "^16.0.0-alpha.12",
 		"react-native": "^0.45.1",
+		"react-native-button": "^2.0.0",
 		"react-native-image-picker": "^0.26.3",
 		"react-native-linear-gradient": "^2.0.0",
 		"react-native-navbar": "^1.7.1",

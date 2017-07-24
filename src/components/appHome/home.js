@@ -52,7 +52,7 @@ class ItemInfo extends Component {
     }
 
     componentWillMount () {
-        
+        console.log('global::' + lib.utils.ruOK({status: {state: 0}}));
     }
 
     render() {
@@ -71,6 +71,16 @@ class ItemInfo extends Component {
                         color='#123456'
                         size={36}
                         onPress={() => Actions.itemDetail({itemId: '72946995242793105717661'})}>
+                    </Icon>
+                    <Icon
+                        style={{
+                            padding: 10
+                        }}
+                        name="google"
+                        backgroundColor="#fff"
+                        color='#123456'
+                        size={36}
+                        onPress={() => Actions.tabbar()}>
                     </Icon>
                 </ScrollView>
             </View>

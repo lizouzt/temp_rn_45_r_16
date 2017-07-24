@@ -8,7 +8,7 @@ import {
     Dimensions,
 } from 'react-native';
 
-module.exports = {
+const utils = {
     extend: function (object) {
         var args = Array.prototype.slice.call(arguments, 1);
 
@@ -61,3 +61,6 @@ module.exports = {
         )
     }
 }
+global.lib = {};
+global.lib.utils = utils;
+module.exports = utils;

@@ -45,6 +45,7 @@
 		8A3234040A2B4F96BD264CC2 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F0353418724014B1DE4A4B /* libRNImagePicker.a */; };
 		9B86A106F7FB4B70AA2AD07F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ECE9142A494A4AA05F6082 /* FontAwesome.ttf */; };
 		A1CEFA378D12444EAD023A73 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40939F4636214EA1B4A51BFF /* libRNVectorIcons.a */; };
+		A70B515B1F25A3AC00F035AB /* bundle in Resources */ = {isa = PBXBuildFile; fileRef = A70B515A1F25A3AC00F035AB /* bundle */; };
 		A7F273911EF7B96200B5ADAD /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F2736C1EF7B7B100B5ADAD /* Lottie.framework */; };
 		A7F273921EF7B96200B5ADAD /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A7F2736C1EF7B7B100B5ADAD /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB67F4A5D12B404FB9C4DAAC /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA1D295E12B479F9507607A /* libReactNativeNavigation.a */; };
@@ -380,6 +381,7 @@
 		94F0353418724014B1DE4A4B /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		A059445664D744A3B4FC1D5C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		A2E4E6890A30410BB1322D2E /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		A70B515A1F25A3AC00F035AB /* bundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bundle; sourceTree = "<group>"; };
 		B8FE39C88F81408496FDAE81 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		DEA1D295E12B479F9507607A /* libReactNativeNavigation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeNavigation.a; sourceTree = "<group>"; };
 		E10ED759F1F24557B7AE9D81 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 		13B07FAE1A68108700A75B9A /* rnapp */ = {
 			isa = PBXGroup;
 			children = (
+				A70B515A1F25A3AC00F035AB /* bundle */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1149,6 +1152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A70B515B1F25A3AC00F035AB /* bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				E69D4B314C9141DE8E9B8A3F /* Entypo.ttf in Resources */,
