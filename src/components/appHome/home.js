@@ -52,7 +52,7 @@ class ItemInfo extends Component {
     }
 
     componentWillMount () {
-        console.log('global::' + lib.utils.ruOK({status: {state: 0}}));
+        console.log('new----global::' + lib.utils.ruOK({status: {state: 0}}));
     }
 
     render() {

@@ -9,7 +9,7 @@ import {dispatch} from '../dispatcher/utilsDispatcher';
 class HomeInfoStore extends ReduceStore {
 	getInitialState () {
 		return {
-			today_title: 'THIS IS FKH'
+			today_title: 'THIS IS version::1.1.0'
 		}
 	}
 

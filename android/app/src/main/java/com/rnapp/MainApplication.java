@@ -3,6 +3,7 @@ package com.rnapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.aerofs.reactnativeautoupdater.ReactNativeAutoUpdaterPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnativenavigation.NavigationReactPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeAutoUpdaterPackage(),
             new LottiePackage(),
             new ImagePickerPackage(),
             new NavigationReactPackage(),
