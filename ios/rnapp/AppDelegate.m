@@ -26,7 +26,9 @@
 {
   NSURL *jsCodeLocation;
 
-//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  //jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  //  jsCodeLocation = [NSURL URLWithString:@"https://xxx.codoon.com/git/bundle/main.jsbundle"];
+  
   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"bundle/main" withExtension:@"jsbundle"];
 
   /*
