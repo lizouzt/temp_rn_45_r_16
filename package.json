@@ -8,7 +8,7 @@
 		"bundle:ios": "react-native bundle --entry-file index.ios.js --bundle-output ./ios/bundle/main.jsbundle --dev false --platform ios --assets-dest ./ios/bundle",
 		"bundle:ios:update": "react-native bundle --entry-file index.ios.js --bundle-output /Users/Taoz/git/bundle/main.jsbundle --dev false --platform ios --assets-dest /Users/Taoz/git/bundle",
 		"bundle:android": "react-native bundle --entry-file index.android.js --bundle-output ./android/app/src/main/assets/main.jsbundle --dev false --platform android --assets-dest ./android/app/src/main/res/",
-		"clear:android": "rm -rf ./android/app/src/main/assets/*.*"
+		"clear:android": "cd android && ./gradlew clean"
 	},
 	"dependencies": {
 		"events": "^1.1.1",
@@ -23,7 +23,6 @@
 		"react-native-image-picker": "^0.26.3",
 		"react-native-linear-gradient": "^2.0.0",
 		"react-native-navbar": "^1.7.1",
-		"react-native-navigation": "^1.1.96",
 		"react-native-router-flux": "^3.40.1",
 		"react-native-vector-icons": "^4.2.0"
 	},
